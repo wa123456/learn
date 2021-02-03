@@ -4,3 +4,18 @@ target/
 logs/
 src/test
 web/
+
+### IntelliJ IDEA ###
+
+*.iws
+*.iml
+*.ipr
+.out
+.build
+.bin
+*build
+*bin
+out
+logs
+build
+bin
