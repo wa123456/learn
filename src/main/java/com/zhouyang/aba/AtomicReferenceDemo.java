@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  *  * 原子引用
+ *  重点：set  compareAndSet
  */
 public class AtomicReferenceDemo {
     public static void main(String[] args) {
