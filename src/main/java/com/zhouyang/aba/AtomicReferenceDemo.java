@@ -9,7 +9,8 @@ public class AtomicReferenceDemo {
     public static void main(String[] args) {
         User z3 = new User("z3", 22);
 
-        User l4 = new User("l4", 25);
+        User l4 = new User("l4", 24);
+        User w5 = new User("w5", 25);
 
         // 创建原子引用包装类
         AtomicReference<User> atomicReference = new AtomicReference<>();
@@ -21,7 +22,7 @@ public class AtomicReferenceDemo {
         System.out.println(atomicReference.compareAndSet(z3, l4) + "\t " + atomicReference.get().toString());
 
         // 比较并交换，现在主物理内存的值是l4了，但是预期为z3，因此交换失败
-        System.out.println(atomicReference.compareAndSet(z3, l4) + "\t " + atomicReference.get().toString());
+        System.out.println(atomicReference.compareAndSet(z3, w5) + "\t " + atomicReference.get().toString());
 
     }
 }
