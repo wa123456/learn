@@ -2,7 +2,7 @@ package com.zhouyang.volatileDemo;
 
 /**
  * @program: learnning
- * @description:
+ * @description: 新线程改为60，main函数中却不知道
  * @author: Lv
  * @create: 2020-11-07 20:54
  **/
@@ -35,9 +35,7 @@ public class VolatileDemo {
             // 线程睡眠3秒，假设在进行运算
             try {
                 TimeUnit.SECONDS.sleep(3);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            } catch (InterruptedException e) { e.printStackTrace(); }
             // 修改number的值
             myData.addTo60();
 
@@ -68,11 +66,8 @@ public class VolatileDemo {
  * 假设是主物理内存
  */
 class MyData {
-
     //volatile int number = 0;
-
     int number = 0;
-
     public void addTo60() {
         this.number = 60;
     }
