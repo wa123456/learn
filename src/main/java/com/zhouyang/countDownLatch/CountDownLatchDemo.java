@@ -3,9 +3,9 @@ package com.zhouyang.countDownLatch;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @program: learnning
+ * @program: learnning  同学都走了，班长才关灯
  * @description: 秦灭六国，一统华夏
- * @author: Lv
+ * @author: Lv  先 countDown 然后 await 最后关灯
  * @create: 2020-12-09 09:47
  **/
 public class CountDownLatchDemo {
@@ -16,6 +16,10 @@ public class CountDownLatchDemo {
 
         for (int i = 0; i <= 6; i++) {
             new Thread(() -> {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e1) { e1.printStackTrace(); }
+
                 System.out.println(Thread.currentThread().getName() + "\t 上完自习，离开教室");
                 countDownLatch.countDown();
             }, String.valueOf(i)).start();
