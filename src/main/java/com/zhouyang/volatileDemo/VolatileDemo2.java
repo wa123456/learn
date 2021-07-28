@@ -17,6 +17,7 @@ package com.zhouyang.volatileDemo;
  */
 
 
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 假设是主物理内存
@@ -36,6 +37,16 @@ class MyData2 {
      */
     public void addPlusPlus() {
         number ++;
+    }
+
+    /**
+     *  创建一个原子Integer包装类，默认为0
+     */
+    AtomicInteger atomicInteger = new AtomicInteger();
+
+    public void addAtomic() {
+        // 相当于 atomicInter ++
+        atomicInteger.getAndIncrement();
     }
 }
 
@@ -58,7 +69,7 @@ public class VolatileDemo2 {
             new Thread(() -> {
                 // 里面
                 for (int j = 0; j < 1000; j++) {
-                    myData.addPlusPlus();
+                    myData.addAtomic();
                 }
             }, String.valueOf(i)).start();
         }
@@ -72,7 +83,7 @@ public class VolatileDemo2 {
 
         // 查看最终的值
         // 假设volatile保证原子性，那么输出的值应该为：  20 * 1000 = 20000
-        System.out.println(Thread.currentThread().getName() + "\t finally number value: " + myData.number);
+        System.out.println(Thread.currentThread().getName() + "\t finally number value: " + myData.atomicInteger);
 
     }
 }
