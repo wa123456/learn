@@ -1,4 +1,4 @@
-package com.lv.stream;
+package com.lv.stream.flatMap;
 
 import java.util.Arrays;
 import java.util.List;
