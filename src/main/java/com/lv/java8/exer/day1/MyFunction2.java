@@ -1,4 +1,4 @@
-package com.lv.java8.exer;
+package com.lv.java8.exer.day1;
 
 public interface MyFunction2<T, R> {
 

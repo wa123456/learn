@@ -1,4 +1,4 @@
-package com.lv.java8;
+package com.lv.java8.day1;
 
 public class FilterEmployeeForSalary implements MyPredicate<Employee> {
 

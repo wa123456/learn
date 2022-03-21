@@ -1,4 +1,4 @@
-package com.lv.java8;
+package com.lv.java8.day1;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -73,11 +73,15 @@ public class TestLambda2 {
 	}
 	
 	@Test
+	/**
+	 * Lambda只是函数式接口的实现类
+	 */
 	public void test3(){
 		Comparator<Integer> com = (x, y) -> {
 			System.out.println("函数式接口");
 			return Integer.compare(x, y);
 		};
+		com.compare(2,3);
 	}
 	
 	@Test

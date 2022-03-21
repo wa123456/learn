@@ -1,14 +1,12 @@
-package com.lv.java8.exer;
+package com.lv.java8.exer.day1;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-
-import com.lv.java8.Employee;
 import org.junit.Test;
 
-
+import com.lv.java8.day1.Employee;
 
 public class TestLambda {
 	

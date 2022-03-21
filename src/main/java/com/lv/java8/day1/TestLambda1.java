@@ -1,4 +1,4 @@
-package com.lv.java8;
+package com.lv.java8.day1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +10,8 @@ import org.junit.Test;
 
 public class TestLambda1 {
 	
-	//原来的匿名内部类
+	//原来的匿名内部类,
+	//TODO 是否要求函数式接口只有一个方法？
 	@Test
 	public void test1(){
 		Comparator<String> com = new Comparator<String>(){
@@ -19,9 +20,9 @@ public class TestLambda1 {
 				return Integer.compare(o1.length(), o2.length());
 			}
 		};
-		
 		TreeSet<String> ts = new TreeSet<>(com);
-		
+
+
 		TreeSet<String> ts2 = new TreeSet<>(new Comparator<String>(){
 			@Override
 			public int compare(String o1, String o2) {
@@ -29,13 +30,15 @@ public class TestLambda1 {
 			}
 			
 		});
+
+		Comparator<String> com3 = (x, y) -> Integer.compare(x.length(), y.length());
+		TreeSet<String> ts3 = new TreeSet<>(com3);
 	}
 	
 	//现在的 Lambda 表达式
 	@Test
 	public void test2(){
-		Comparator<String> com = (x, y) -> Integer.compare(x.length(), y.length());
-		TreeSet<String> ts = new TreeSet<>(com);
+
 	}
 	
 	List<Employee> emps = Arrays.asList(
@@ -46,7 +49,10 @@ public class TestLambda1 {
 			new Employee(105, "田七", 38, 5555.55)
 	);
 
-	//需求：获取公司中年龄小于 35 的员工信息
+	/**需求：获取公司中年龄小于 35 的员工信息
+	 * @param emps
+	 * @return
+	 */
 	public List<Employee> filterEmployeeAge(List<Employee> emps){
 		List<Employee> list = new ArrayList<>();
 		
@@ -58,29 +64,32 @@ public class TestLambda1 {
 		
 		return list;
 	}
-	
-	@Test
-	public void test3(){
-		List<Employee> list = filterEmployeeAge(emps);
-		
-		for (Employee employee : list) {
-			System.out.println(employee);
-		}
-	}
-	
-	//需求：获取公司中工资大于 5000 的员工信息
+
+	/**需求：获取公司中工资大于 5000 的员工信息
+	 * @param emps
+	 * @return
+	 */
 	public List<Employee> filterEmployeeSalary(List<Employee> emps){
 		List<Employee> list = new ArrayList<>();
-		
+
 		for (Employee emp : emps) {
 			if(emp.getSalary() >= 5000){
 				list.add(emp);
 			}
 		}
-		
+
 		return list;
 	}
 	
+	@Test
+	public void test3(){
+		//List<Employee> list = this.filterEmployeeAge(emps);
+		List<Employee> list = this.filterEmployeeSalary(emps);
+		for (Employee employee : list) {
+			System.out.println(employee);
+		}
+	}
+
 	//优化方式一：策略设计模式
 	public List<Employee> filterEmployee(List<Employee> emps, MyPredicate<Employee> mp){
 		List<Employee> list = new ArrayList<>();
@@ -90,11 +99,11 @@ public class TestLambda1 {
 				list.add(employee);
 			}
 		}
-		
 		return list;
 	}
 	
 	@Test
+	// 在策略中传入不同的方法；
 	public void test4(){
 		List<Employee> list = filterEmployee(emps, new FilterEmployeeForAge());
 		for (Employee employee : list) {
@@ -109,7 +118,7 @@ public class TestLambda1 {
 		}
 	}
 	
-	//优化方式二：匿名内部类
+	//优化方式二：匿名内部类，方法体中写具体的业务；
 	@Test
 	public void test5(){
 		List<Employee> list = filterEmployee(emps, new MyPredicate<Employee>() {
@@ -124,10 +133,10 @@ public class TestLambda1 {
 		}
 	}
 	
-	//优化方式三：Lambda 表达式
+	//优化方式三：Lambda 表达式 简化策略的方法；
 	@Test
 	public void test6(){
-		List<Employee> list = filterEmployee(emps, (e) -> e.getAge() <= 35);
+		List<Employee> list = filterEmployee(emps, (e) -> e.getAge() <= 35); // e的类型通过接口去判断
 		list.forEach(System.out::println);
 		
 		System.out.println("------------------------------------------");
