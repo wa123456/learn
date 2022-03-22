@@ -35,21 +35,8 @@ public class TestLambda1 {
         //emps.stream().map(employee -> {return  employee.getName();}).forEach(str -> System.out.println(str));
         //emps.stream().map(Employee::getName).forEach(System.out::println);
 
-        //重点看一下flatmap
-
-
-
-
-        //根据年纪比较，如果年纪一样，则根据姓名比较；
-        emps.stream().sorted((x,y)->{
-            if(x.getAge() == y.getAge()){
-                return x.getName().compareTo(y.getName());
-            }else{
-                return x.getAge() > y.getAge() ? 1: -1;
-            }
-
-        }).forEach(System.out::println);
-
+        Optional<Double> reduce = emps.stream().map(Employee::getSalary).reduce(Double::sum);
+        System.out.println(reduce.get());
 
     }
     public static Stream<Character> filterCharacter(String str){
