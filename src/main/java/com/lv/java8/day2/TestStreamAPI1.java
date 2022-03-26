@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 import org.junit.Test;
 
-/*
+/* 是否要求函数式接口只有一个方法？回答：不包括equals，等方法
  * 一、 Stream 的操作步骤
  * 
  * 1. 创建 Stream
