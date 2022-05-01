@@ -4,7 +4,7 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * @program: learnning  同学都走了，班长才关灯
- * @description: 秦灭六国，一统华夏
+ * @description:
  * @author: Lv  先 countDown 然后 await 最后关灯
  * @create: 2020-12-09 09:47
  **/

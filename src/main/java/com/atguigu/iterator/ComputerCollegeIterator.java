@@ -5,25 +5,25 @@ import java.util.Iterator;
 
 public class ComputerCollegeIterator implements Iterator {
 
-	//����������ҪDepartment ���������ķ�ʽ���=>����
+	//这里我们需要Department 是以怎样的方式存放=>数组
 	Department[] departments;
-	int position = 0; //������λ��
-	
-	
-	
-	
+	int position = 0; //遍历的位置
+
+
+
+
 	public ComputerCollegeIterator(Department[] departments) {
 		this.departments = departments;
 	}
 
-	//�ж��Ƿ�����һ��Ԫ��
+	//判断是否还有下一个元素
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
 		if(position >= departments.length || departments[position] == null) {
 			return false;
 		}else {
-		
+
 			return true;
 		}
 	}
@@ -35,10 +35,10 @@ public class ComputerCollegeIterator implements Iterator {
 		position += 1;
 		return department;
 	}
-	
-	//ɾ���ķ�����Ĭ�Ͽ�ʵ��
+
+	//删除的方法，默认空实现
 	public void remove() {
-		
+
 	}
 
 }

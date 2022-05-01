@@ -22,12 +22,13 @@ public class SemaphoreDemo {
                     semaphore.acquire(); // 抢占
 
                     System.out.println(Thread.currentThread().getName() + "\t 抢到车位");
+                    long sleepTime = (long) (Math.random() * (5 - 2) + 2);
                     // 每个车停3秒
                     try {
-                        TimeUnit.SECONDS.sleep(3);
+                        TimeUnit.SECONDS.sleep(sleepTime);
                     } catch (InterruptedException e) { e.printStackTrace(); }
 
-                    System.out.println(Thread.currentThread().getName() + "\t 离开车位");
+                    System.out.println(Thread.currentThread().getName() + "\t停了" + sleepTime + "秒后 \t 离开车位");
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();

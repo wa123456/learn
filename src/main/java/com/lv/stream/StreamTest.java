@@ -30,7 +30,7 @@ public class StreamTest {
         List<Integer> squareNums = nums.stream().map(n -> n * n).collect(Collectors.toList());
         System.out.println(squareNums);
         */
-        /*
+        /**/
         //flatMap
         //将最底层元素抽出来放到一起，最终 output 的新 Stream 里面已经没有 List 了，都是直接的数字。
         Stream<List<Integer>> inputStream = Stream.of(
@@ -41,7 +41,7 @@ public class StreamTest {
         Stream<Integer> outputStream = inputStream.flatMap((childList) -> childList.stream());
         List<Integer> list =outputStream.collect(Collectors.toList());
         System.out.println(list.toString());
-        */
+
 
         //留下偶数，经过条件“被 2 整除”的 filter，剩下的数字为 {2, 4, 6}。
         /*

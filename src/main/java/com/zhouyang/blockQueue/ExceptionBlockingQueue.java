@@ -1,5 +1,8 @@
 package com.zhouyang.blockQueue;
 
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
 /**
  * @program: learnning
  * @description:
@@ -21,7 +24,7 @@ public class ExceptionBlockingQueue {
         */
 
         // 阻塞队列，需要填入默认值
-        /*
+        /**/
         BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<>(3);
         System.out.println(blockingQueue.add("a"));
         System.out.println(blockingQueue.add("b"));
@@ -32,7 +35,7 @@ public class ExceptionBlockingQueue {
         System.out.println(blockingQueue.remove());
         System.out.println(blockingQueue.remove());
         //java.util.NoSuchElementException
-        */
+
     }
 
 }

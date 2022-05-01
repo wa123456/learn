@@ -1,12 +1,6 @@
 package com.lv.java8.day2;
 
-import java.util.Arrays;
-import java.util.DoubleSummaryStatistics;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import org.junit.Test;
@@ -53,7 +47,16 @@ public class TestStreamAPI3 {
 	public void test2(){
 		Optional<Integer> sum = emps.stream()
 			.map(Employee::getName)
-			.flatMap(TestStreamAPI1::filterCharacter)
+			//.flatMap(TestStreamAPI1::filterCharacter)
+				.flatMap((x)->{
+					List<Character> list = new ArrayList<>();
+
+					for (Character ch : x.toCharArray()) {
+						list.add(ch);
+					}
+
+					return list.stream();
+				})
 			.map((ch) -> {
 				if(ch.equals('六'))
 					return 1;

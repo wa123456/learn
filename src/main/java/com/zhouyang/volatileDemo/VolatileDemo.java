@@ -39,6 +39,7 @@ public class VolatileDemo {
             // 修改number的值
             myData.addTo60();
 
+
             // 输出修改后的值
             System.out.println(Thread.currentThread().getName() + "\t update number value:" + myData.number);
 

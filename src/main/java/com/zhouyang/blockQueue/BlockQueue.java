@@ -5,7 +5,7 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  * @program: learnning
- * @description:
+ * @description:  最后一个取不出来时，会阻塞；
  * @author: Lv
  * @create: 2020-12-10 10:20
  **/

@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @program: learnning
- * @description:SynchronousQueue没有容量，与其他BlockingQueue不同，
+ * @description: SynchronousQueue没有容量，与其他BlockingQueue不同，
  * SynchronousQueue是一个不存储的BlockingQueue，每一个put操作必须等待一个take操作，否者不能继续添加元素
  * @author: Lv
  * @create: 2020-12-10 10:32

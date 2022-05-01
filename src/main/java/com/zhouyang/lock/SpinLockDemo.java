@@ -3,6 +3,9 @@ package com.zhouyang.lock;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * 自旋锁，原子引用线程 CAS
+ */
 public class SpinLockDemo {
 
     // 现在的泛型装的是Thread，原子引用线程
@@ -59,7 +62,7 @@ public class SpinLockDemo {
         /**/
         // 让main线程暂停1秒，使得t1线程，先执行
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

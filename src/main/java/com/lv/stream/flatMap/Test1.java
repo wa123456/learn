@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 public class Test1
 {
     public static void main(String[] args) {
-        /*
+        /**/
         //groupingBy使用
         System.out.println("=======groupingBy==========");
         Stream<Person> stream = Stream.of(new Person("1", "aa", "12"), new Person("1", "bb", "13"), new Person("3", "cc", "14"));
@@ -29,7 +29,7 @@ public class Test1
         Map<Boolean, List<Integer>> collectGroup = Stream.of(1, 2, 3, 4)
                 .collect(Collectors.groupingBy(it -> it > 3));
         System.out.println("collectGroup : " + collectGroup);
-        */
+
 
 
         String[] arr1 = {"a", "b", "c", "d"};

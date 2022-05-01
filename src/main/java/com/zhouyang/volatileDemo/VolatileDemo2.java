@@ -69,7 +69,8 @@ public class VolatileDemo2 {
             new Thread(() -> {
                 // 里面
                 for (int j = 0; j < 1000; j++) {
-                    myData.addAtomic();
+                    //myData.addAtomic();
+                    myData.addPlusPlus();
                 }
             }, String.valueOf(i)).start();
         }
@@ -83,7 +84,7 @@ public class VolatileDemo2 {
 
         // 查看最终的值
         // 假设volatile保证原子性，那么输出的值应该为：  20 * 1000 = 20000
-        System.out.println(Thread.currentThread().getName() + "\t finally number value: " + myData.atomicInteger);
+        System.out.println(Thread.currentThread().getName() + "\t finally number value: " + myData.number);
 
     }
 }
