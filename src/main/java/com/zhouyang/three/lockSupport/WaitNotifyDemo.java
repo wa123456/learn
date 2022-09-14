@@ -1,5 +1,11 @@
 package com.zhouyang.three.lockSupport;
 
+/**
+ *  1、lock.wait()是Object对象的方法
+ *  2、lock.wait、notify必须在 synchronized体内；
+ *  3、必须先wait 然后再 notify
+ *
+ */
 public class WaitNotifyDemo {
 
 	static Object lock = new Object();

@@ -26,6 +26,14 @@ public class SimpleHttpServer {
             SimpleHttpServer.basePath = basePath;
         }
     }
+
+    public static void main(String[] args) {
+        try {
+            SimpleHttpServer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     // 启动SimpleHttpServer
     public static void start() throws Exception {
         serverSocket = new ServerSocket(port);

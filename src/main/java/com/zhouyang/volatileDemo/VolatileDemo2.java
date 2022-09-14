@@ -46,7 +46,7 @@ class MyData2 {
 
     public void addAtomic() {
         // 相当于 atomicInter ++
-        atomicInteger.getAndIncrement();
+        number = atomicInteger.getAndIncrement();
     }
 }
 
@@ -65,12 +65,12 @@ public class VolatileDemo2 {
         MyData2 myData = new MyData2();
 
         // 创建10个线程，线程里面进行1000次循环
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 200; i++) {
             new Thread(() -> {
                 // 里面
-                for (int j = 0; j < 1000; j++) {
+                for (int j = 0; j < 10000; j++) {
                     //myData.addAtomic();
-                    myData.addPlusPlus();
+                    myData.addAtomic();
                 }
             }, String.valueOf(i)).start();
         }

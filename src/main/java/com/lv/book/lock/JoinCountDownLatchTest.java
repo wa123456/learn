@@ -11,6 +11,12 @@ public class JoinCountDownLatchTest {
         Thread parser1 = new Thread(new Runnable() {
             @Override
             public void run() {
+
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 System.out.println("parser1 finish");
             }
         });
@@ -22,6 +28,7 @@ public class JoinCountDownLatchTest {
         });
         parser1.start();
         parser2.start();
+
         System.out.println("before t1.join》》》");
         parser1.join();
         System.out.println("finish t1.join》》》》");

@@ -38,6 +38,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.roaringbitmap</groupId>
+            <artifactId>RoaringBitmap</artifactId>
+            <version>0.9.16</version>
+        </dependency>
+
+
 
     </dependencies>
 

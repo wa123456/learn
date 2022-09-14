@@ -58,7 +58,7 @@ public class TestStreamAPI3 {
 					return list.stream();
 				})
 			.map((ch) -> {
-				if(ch.equals('六'))
+				if(ch.equals('a'))
 					return 1;
 				else 
 					return 0;
@@ -68,7 +68,7 @@ public class TestStreamAPI3 {
 	}
 	
 	//collect——将流转换为其他形式。接收一个 Collector接口的实现，用于给Stream中元素做汇总的方法
-	@Test
+	//@Test
 	public void test3(){
 		List<String> list = emps.stream()
 			.map(Employee::getName)
